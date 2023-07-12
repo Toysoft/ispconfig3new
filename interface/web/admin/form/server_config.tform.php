@@ -734,6 +734,12 @@ $form["tabs"]['mail'] = array(
 			'default' => 'y',
 			'value' => array(0 => 'n', 1 => 'y')
 		),
+		'mailbox_soft_delete' => array (
+			'datatype' => 'VARCHAR',
+			'formtype' => 'CHECKBOX',
+			'default' => 'n',
+			'value' => array(0 => 'n', 1 => 'y')
+		),
 		'mailbox_quota_stats' => array (
 			'datatype' => 'VARCHAR',
 			'formtype' => 'CHECKBOX',
@@ -1641,6 +1647,20 @@ $form["tabs"]['dns'] = array(
 									1 => array ( 	'type' => 'REGEX',
 										'regex' => '/^\/[a-zA-Z0-9\.\-\_\/]{1,128}$/',
 										'errmsg'=> 'bind_zonefiles_dir_error_regex'),
+			),
+			'value' => '',
+			'width' => '40',
+			'maxlength' => '255'
+		),
+		'bind_keyfiles_dir' => array(
+			'datatype' => 'VARCHAR',
+			'formtype' => 'TEXT',
+			'default' => '',
+			'validators' => array(	0 => array('type' => 'NOTEMPTY',
+										'errmsg' => 'bind_keyfiles_dir_error_empty'),
+									1 => array ( 	'type' => 'REGEX',
+										'regex' => '/^\/[a-zA-Z0-9\.\-\_\/]{1,128}$/',
+										'errmsg'=> 'bind_keyfiles_dir_error_regex'),
 			),
 			'value' => '',
 			'width' => '40',
